@@ -29,9 +29,9 @@ public class Bot {
         add("02");
     }};
     private final static Map<String, String> items = new HashMap<String, String>() {{
-        put("0", "\uD83D\uDC4A");
-        put("1", "✌");
-        put("2", "\uD83E\uDD1A");
+        put("0", "\uD83E\uDEA8");
+        put("1", "✂️");
+        put("2", "\uD83D\uDCC4");
     }};
 
     public void serve() {
@@ -75,18 +75,18 @@ public class Bot {
             request = new EditMessageText(chatId, messageId, message.text())
                     .replyMarkup(
                             new InlineKeyboardMarkup(
-                                    new InlineKeyboardButton("\uD83D\uDC4A")
+                                    new InlineKeyboardButton("\uD83E\uDEA8")
                                             .callbackData(String.format("%d %s %s %s %d", chatId, senderName, senderChose, "0", messageId)),
-                                    new InlineKeyboardButton("✌")
+                                    new InlineKeyboardButton("✂️")
                                             .callbackData(String.format("%d %s %s %s %d", chatId, senderName, senderChose, "1", messageId)),
-                                    new InlineKeyboardButton("\uD83E\uDD1A")
+                                    new InlineKeyboardButton("\uD83D\uDCC4")
                                             .callbackData(String.format("%d %s %s %s %d", chatId, senderName, senderChose, "2", messageId))
                             )
                     );
         } else if (inlineQuery != null) {
-            InlineQueryResultArticle rock = buildInlineButton("rock", "\uD83D\uDC4A Камень", "0");
-            InlineQueryResultArticle scissors = buildInlineButton("scissors", "✌ Ножницы", "1");
-            InlineQueryResultArticle ruler = buildInlineButton("paper", "\uD83E\uDD1A Бумага", "2");
+            InlineQueryResultArticle rock = buildInlineButton("rock", "\uD83E\uDEA8 Камень", "0");
+            InlineQueryResultArticle scissors = buildInlineButton("scissors", "✂️ Ножницы", "1");
+            InlineQueryResultArticle ruler = buildInlineButton("paper", "\uD83D\uDCC4 Бумага", "2");
 
             request = new AnswerInlineQuery(inlineQuery.id(), rock, scissors, ruler).cacheTime(1);
         } else if (callbackQuery != null) {
